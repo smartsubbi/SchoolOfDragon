@@ -14,12 +14,18 @@ public class AfterLoggedInPage
 		this.driver = driver;		
 	}
 	
-	@FindBy(xpath="//a[@id='ctl00_mcp_logout'][@class='LaunchClass'][@href='Logout.aspx']")
-	WebElement logoutAfterLoggedIn;
-	
 	public WebElement currentlyLoggedInText(String userName)
 	{
-		return driver.findElement(By.xpath("//div[@class='launchgame-content']/p/strong"));		
+		String loggedInTextXpath = "//div[@class='launchgame-content']/p[contains(text(),'"+userName+"')]/strong[contains(text(),'You are currently logged in as')]";
+		return driver.findElement(By.xpath(loggedInTextXpath));		
 	}
-
+	
+	@FindBy(xpath="//a[@id='ctl00_mcp_logout'][@class='LaunchClass'][@href='Logout.aspx'][.='Logout']")
+	WebElement logoutAfterLoggedIn;
+	
+	@FindBy(xpath="//a[@id='change-password'][@class='LaunchClass'][@href='#'][.='Change Password']")
+	WebElement changePasswordAfterLoggedIn;
+	
+	@FindBy(xpath="//p/a[@class='launch-game'][@href='#']")
+	WebElement playGameAfterLoggedIn;
 }
