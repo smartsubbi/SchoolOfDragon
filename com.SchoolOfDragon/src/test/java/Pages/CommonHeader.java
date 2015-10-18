@@ -3,6 +3,11 @@ package Pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
+
+import Utility.HighLighter;
+
+
 
 public class CommonHeader 
 {
@@ -21,6 +26,7 @@ public class CommonHeader
 	
 	public void clickHeaderLoginLink()
 	{
+		HighLighter.elementHighLight(driver, headerLogInLink);
 		headerLogInLink.click();
 	}
 	
@@ -29,6 +35,10 @@ public class CommonHeader
 		headerLogOutLink.click();
 	}
 	
-	
+	public void verifyHomePageTitle()
+	{
+		String homePageTitle = driver.getTitle();
+		Assert.assertEquals(homePageTitle, "How To Train Your Dragon Games | School of Dragons Online");
+	}	
 
 }

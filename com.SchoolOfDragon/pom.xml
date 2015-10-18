@@ -25,6 +25,11 @@
 			<artifactId>testng</artifactId>
 			<version>6.1.1</version>
 		</dependency>
+		<dependency>
+			<groupId>com.relevantcodes</groupId>
+			<artifactId>extentreports</artifactId>
+			<version>2.05</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -50,6 +55,7 @@
 
 					<suiteXmlFiles>
 						<suiteXmlFile>UnitTestNG.xml</suiteXmlFile>
+						<suiteXmlFile>LiveLoginTestCases.xml</suiteXmlFile>
 					</suiteXmlFiles>
 
 					<testFailureIgnore>true</testFailureIgnore>

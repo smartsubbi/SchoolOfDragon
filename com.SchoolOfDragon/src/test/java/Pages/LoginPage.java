@@ -3,6 +3,11 @@ package Pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
+
+import Utility.HighLighter;
+
+
 
 public class LoginPage 
 {
@@ -22,13 +27,27 @@ public class LoginPage
 	@FindBy(xpath="//input[@id='ctl00_mcp_btnLogin'][@class='SOD-Login-Btn'][@type='submit'][@name='ctl00$mcp$btnLogin']")
 	WebElement loginPagePlayNowButton;
 	
-	public void login(String userName, String password)
+	public void verifyLoginPageTitle()
 	{
-		loginPageUserNameInputField.sendKeys(userName);
-		loginPagePasswordInputField.sendKeys(password);
-		loginPagePlayNowButton.click();
+		String loginPageTitle = driver.getTitle();
+		Assert.assertEquals(loginPageTitle, "Login – How to Train Your Dragon Game – School of Dragons");
 	}
 	
+	public void userNameType(String userName)
+	{
+		HighLighter.elementHighLight(driver, loginPageUserNameInputField);
+		loginPageUserNameInputField.sendKeys(userName);
+	}
 	
-
+	public void passwordType(String password)
+	{
+		HighLighter.elementHighLight(driver, loginPagePasswordInputField);
+		loginPagePasswordInputField.sendKeys(password);
+	}
+	
+	public void playNowButtonClick()
+	{		
+		HighLighter.elementHighLight(driver, loginPagePlayNowButton);
+		loginPagePlayNowButton.click();	
+	}
 }
