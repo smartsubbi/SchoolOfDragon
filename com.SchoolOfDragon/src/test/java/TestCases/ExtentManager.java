@@ -10,17 +10,16 @@ public class ExtentManager
 {
 	static DateFormat dateFormat = new SimpleDateFormat("E.MMMM.yyyy_HH.mm.ss[a]");
 	static Date date = new Date();
-	static String reportPath = "M:\\ExtentReports\\SchoolOfDragonsLive_" +dateFormat.format(date) + ".html";
+	static String userDirectory =  System.getProperty("user.dir");
+	static String path = userDirectory.replace("\\","/");
+	static String reportPath = path+"/ExtentReports/SchoolOfDragonsLive_" +dateFormat.format(date) + ".html";
+
 	
 	
 	
 	public static ExtentReports Instance() 
-	{
-	
-		
-		
-		ExtentReports report;
-		
+	{		
+		ExtentReports report;		
 		System.out.println(reportPath);
 		report = new ExtentReports(reportPath, false);
 		report.config().documentTitle("Automation Report").reportName("Regression");
@@ -28,14 +27,5 @@ public class ExtentManager
 	}
 	
 	
-	// public static ExtentReports Instance()
-	// {
-	// ExtentReports extent;
-	// String Path = "./ExtentReport.html";
-	// System.out.println(Path);
-	// extent = new ExtentReports(Path, false);
-	// extent.config().documentTitle("Automation
-	// Report").reportName("Regression");
-	// return extent;
-	// }
+	
 }

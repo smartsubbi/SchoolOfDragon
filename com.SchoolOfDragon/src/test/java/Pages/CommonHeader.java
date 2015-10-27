@@ -24,6 +24,9 @@ public class CommonHeader
 	@FindBy(xpath="//div[@id='ctl00_logoutdiv']/a[@class='logo'][@title='Logout'][@href='/Logout.aspx']")
 	WebElement headerLogOutLink;
 	
+	@FindBy(xpath="//div[@id='ctl00_logindiv']/a[@class='logo'][@title='Create An Account'][@href='/Signup.aspx'][.='Create An Account']")
+	WebElement headerCreateAnAccountLink;
+	
 	public void clickHeaderLoginLink()
 	{
 		HighLighter.elementHighLight(driver, headerLogInLink);
@@ -33,6 +36,11 @@ public class CommonHeader
 	public void clickHeaderLogOutLink()
 	{
 		headerLogOutLink.click();
+	}
+	
+	public void clickHeaderCreateAnAccountLink()
+	{
+		headerCreateAnAccountLink.click();
 	}
 	
 	public void verifyHomePageTitle()

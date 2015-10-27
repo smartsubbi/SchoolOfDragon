@@ -6,6 +6,7 @@ import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.relevantcodes.extentreports.ExtentReports;
@@ -31,11 +32,11 @@ public class TestCase3
 		report=ExtentManager.Instance();
 	}
 	
-	
-	@Test
-	public void ValidNonAuthorisedParentLogin()
+	@Parameters(value="Category")
+	@Test	
+	public void ValidNonAuthorisedParentLogin(String catg)
 	{
-		logger = report.startTest("Test Case 3: Age 12 Player (Non Authorized User) Login to School of Dragons Live ","This will verify if a non Autorized user with age 12 can login with valid credentials");
+		logger = report.startTest("Test Case 3: Live - Age 12 Player (Non Authorized User) Login to School of Dragons Live ","This will verify if a non Autorized user with age 12 can login with valid credentials").assignCategory(catg);
 		
 		driver = BrowserFactory.getBrowser("firefox");
 		logger.log(LogStatus.INFO, "Browser is up and running");

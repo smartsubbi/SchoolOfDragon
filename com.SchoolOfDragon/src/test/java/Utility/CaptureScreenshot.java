@@ -16,8 +16,11 @@ public class CaptureScreenshot
 	TakesScreenshot ts=(TakesScreenshot)driver;
 		
 	 File src= ts.getScreenshotAs(OutputType.FILE);  
+	 
+	 String userDirectory =  System.getProperty("user.dir");
+		String path = userDirectory.replace("\\","/");
 	  
-	 String destination="M:\\Users\\smartsubbi\\gitRepo\\com.SchoolOfDragon\\Screenshots\\"+screenshotname+System.currentTimeMillis()+".png";
+	 String destination=path+"/Screenshots/"+screenshotname+System.currentTimeMillis()+".jpg";
 		
 	 try 
 	 {

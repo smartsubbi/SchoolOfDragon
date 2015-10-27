@@ -8,6 +8,7 @@ import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.relevantcodes.extentreports.ExtentReports;
@@ -25,7 +26,8 @@ public class TestCase1
 	WebDriver driver;
 	ExtentReports report;
 	ExtentTest logger;	
-	Set<String> windowsOpen;	
+	Set<String> windowsOpen;
+	String Category;
 	
 	@BeforeClass
 	public void setUp()
@@ -33,10 +35,11 @@ public class TestCase1
 		report=ExtentManager.Instance();
 	}
 	
+	@Parameters(value="Category")
 	@Test()
-	public void ValidAuthorisedPlayerLogin()
+	public void ValidAuthorisedPlayerLogin(String catg)
 	{
-		logger = report.startTest("Test Case 1: Age 13 Player (Authorized User) Login to School of Dragons Live ","This will verify if Authorized user with age 13 can login with valid credentials");
+		logger = report.startTest("Test Case 1: Live - Age 13 Player (Authorized User) Login to School of Dragons Live ","This will verify if Authorized user with age 13 can login with valid credentials").assignCategory(catg);
 		
 		driver = BrowserFactory.getBrowser("firefox");
 		logger.log(LogStatus.INFO, "Browser is up and running");

@@ -5,7 +5,7 @@
 		<classes>
 			<class name="UnitTest.ConfigDataProviderFactoryUnitTest" />
 			<class name="UnitTest.ConfigDataProviderUnitTest" />
-			<class name="UnitTest.ExcelDataProviderUnitTest" />
+		    <class name="UnitTest.ExcelDataProviderUnitTest" /> 
 			<class name="UnitTest.ExcelDataProviderFactoryUnitTest" />
 			<class name="UnitTest.BrowserFactoryUnitTest" />
 		</classes>
