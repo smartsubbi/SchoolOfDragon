@@ -1,10 +1,11 @@
 package UnitTest;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import DataProvider.ExcelDataProvider;
 import Factory.ExcelDataProviderFactory;
-import junit.framework.Assert;
+
 
 public class ExcelDataProviderFactoryUnitTest 
 {
